@@ -52,17 +52,15 @@ var ProfPlum = {
   image: 'https://metrouk2.files.wordpress.com/2016/07/colonel-mustard.jpg',
   occupation: 'Retired Football player', };
 
-
-
-var Rope={ Weight: 10};
-var Knife = {Weight: 8};
-var Candlestick = {Weight: 2};
-var Dumbbell = {Weight: 30};
-var Poison = {Weight: 2};
-var Axe = {Weight: 15};
-var Bat = {Weight: 13};
-var Trophy = {Weight: 25};
-var Pistol = {Weight: 20};
+var Rope={ name:"Rope", Weight: 10};
+var Knife = {name:"Knife", Weight: 8};
+var Candlestick = {name:"Candlestick", Weight: 2};
+var Dumbbell = {name:"Dumbbell", Weight: 30};
+var Poison = {name:"Poison", Weight: 2};
+var Axe = {name:"Axe", Weight: 15};
+var Bat = {name:"Bat", Weight: 13};
+var Trophy = {name:"Trophy", Weight: 25};
+var Pistol = {name:"Pistol", Weight: 20};
 
 var people =[MrGreen, DrOrchid, ProfPlum, MissScarlet, MrsPeacock, MrMustard];
 
@@ -91,20 +89,17 @@ function random_selector(a) {
 }
 
 function pick_mistery() {
-  var murder = random_selector(people);
+  var murderer = random_selector(people);
   var room = random_selector(rooms);
   var weapon = random_selector(weapons);
-  var solution = [murder, room, weapon];
-  return solution;
+  return [murderer.firstName, room, weapon.name];
 }
 
 function reveal_mistery(mistery) {
-
+  console.log("The murderer is " +  mistery[0] + ", the weapon is a " + mistery[2] + " and the place is the " + mistery[1]);
 }
 
+console.log("Picking cards...");
 var mistery_envelope = pick_mistery();
+console.log("Placing the cards into the envelope!");
 reveal_mistery(mistery_envelope);
-
-
-solution = pick_mistery();
-console.log(solution);
